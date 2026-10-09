@@ -1,676 +1,852 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>e-DigiPesa | Õppematerjalid & Diginipid</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TI-hüpe | Digimaterjalid ja õpetlikud nipid</title>
+  <meta name="description" content="Lõbus ja kasulik digipesa õppematerjalide, nutikate tööriistade ning õpetlike nippide leidmiseks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
-      --primary: #FF6B6B;
-      --secondary: #4ECDC4;
-      --accent: #FFE66D;
-      --purple: #9A7AA0;
-      --dark: #2B2D42;
-      --light-bg: #FFF9F2;
-      --radius: 20px;
-      --shadow: 0 10px 25px rgba(0,0,0,0.07);
+      --blue-900: #0d3b66;
+      --blue-800: #124d8a;
+      --blue-700: #1b67bb;
+      --blue-600: #2d7eea;
+      --blue-500: #4a9af7;
+      --blue-100: #eaf4ff;
+      --cyan: #61d0ff;
+      --ice: #f4f9ff;
+      --ink: #18314f;
+      --muted: #5d6d7c;
+      --line: #dfeaf8;
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(13, 59, 102, 0.12);
+      --radius: 24px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lexend', sans-serif;
-      background-color: var(--light-bg);
-      color: var(--dark);
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(180deg, #f7fbff 0%, #edf7ff 100%);
+      color: var(--ink);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, .brand-logo {
-      font-family: 'Fredoka', cursive;
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    h1, h2, h3, h4, .brand, .btn, .chip {
+      font-family: 'Montserrat', sans-serif;
     }
 
-    header {
-      background: white;
-      padding: 1rem 2rem;
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      border-bottom: 4px solid var(--accent);
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(13, 59, 102, 0.08);
+      box-shadow: 0 8px 24px rgba(13,59,102,0.04);
     }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    .nav {
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      min-height: 78px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
       align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--blue-900);
+      letter-spacing: 0.02em;
     }
 
-    .brand-logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-logo i {
-      background: var(--accent);
-      color: var(--dark);
-      padding: 10px;
-      border-radius: 50%;
-      font-size: 1.4rem;
-      transform: rotate(-10deg);
-      transition: transform 0.3s;
-    }
-
-    .brand-logo:hover i {
-      transform: rotate(10deg) scale(1.1);
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--blue-600), var(--cyan));
+      color: var(--white);
+      box-shadow: 0 12px 24px rgba(45,126,234,0.25);
+      font-size: 1.1rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      transition: all 0.3s;
-    }
-
-    .nav-links a:hover, .nav-links a.active {
-      background-color: var(--secondary);
-      color: white;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
-      padding: 4rem 2rem;
-      border-radius: 0 0 50px 50px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: var(--dark);
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 0px white;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      color: #4A4A4A;
-    }
-
-    .search-box {
-      background: white;
-      padding: 8px;
-      border-radius: 50px;
-      display: flex;
-      box-shadow: var(--shadow);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .search-box input {
-      border: none;
-      outline: none;
-      padding: 12px 20px;
-      font-size: 1rem;
-      flex: 1;
-      border-radius: 50px;
-      font-family: inherit;
-    }
-
-    .search-box button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: 600;
-      font-family: 'Fredoka', cursive;
-      font-size: 1.1rem;
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .search-box button:hover {
-      background: #ff5252;
-      transform: scale(1.05);
-    }
-
-    .audience-section {
-      max-width: 1200px;
-      margin: -40px auto 3rem;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    .audience-card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      text-align: center;
-      border: 3px solid transparent;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .audience-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .audience-card.students { border-color: var(--secondary); }
-    .audience-card.teachers { border-color: var(--primary); }
-    .audience-card.tools { border-color: var(--purple); }
-
-    .audience-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 2rem;
-    }
-
-    .students .audience-icon { background: #E6FFFA; color: var(--secondary); }
-    .teachers .audience-icon { background: #FFE5E5; color: var(--primary); }
-    .tools .audience-icon { background: #F3E8FF; color: var(--purple); }
-
-    .tip-of-week {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-    }
-
-    .tip-card {
-      background: linear-gradient(135deg, #FFE66D, #FFB347);
-      border-radius: var(--radius);
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      box-shadow: var(--shadow);
-    }
-
-    .tip-badge {
-      background: var(--dark);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      max-width: 1200px;
-      margin: 3rem auto 1.5rem;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .section-title h2 {
-      font-size: 2rem;
-      color: var(--dark);
-    }
-
-    .filter-tags {
-      display: flex;
-      gap: 0.5rem;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .tag {
-      background: white;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: 2px solid #E2E8F0;
-      transition: all 0.2s;
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--blue-900);
+      transition: all 0.2s ease;
     }
 
-    .tag.active, .tag:hover {
-      background: var(--dark);
-      color: white;
-      border-color: var(--dark);
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--blue-100);
+      color: var(--blue-800);
     }
 
-    .grid-container {
-      max-width: 1200px;
-      margin: 0 auto 4rem;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .resource-card {
-      background: white;
-      border-radius: var(--radius);
+    .hero {
+      background: linear-gradient(135deg, #eaf5ff 0%, #dfeeff 20%, #f7fbff 100%);
+      position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(74, 154, 247, 0.08);
+      filter: blur(4px);
+    }
+
+    .hero::before {
+      width: 520px;
+      height: 520px;
+      right: -120px;
+      top: -150px;
+    }
+
+    .hero::after {
+      width: 480px;
+      height: 480px;
+      left: -160px;
+      bottom: -180px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      padding: 72px 0 54px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(29, 104, 181, 0.08);
+      border: 1px solid rgba(29,104,181,0.1);
+      color: var(--blue-800);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+      line-height: 1.08;
+      color: var(--blue-900);
+      letter-spacing: -0.04em;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 630px;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
     }
 
-    .resource-card:hover {
-      transform: translateY(-5px);
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      border-radius: 14px;
+      padding: 0 22px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
     }
 
-    .card-banner {
-      height: 140px;
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+      color: var(--white);
+      box-shadow: 0 16px 24px rgba(45, 126, 234, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      border-color: var(--line);
+      color: var(--blue-900);
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 16px;
+      max-width: 640px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(13,59,102,0.08);
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 24px rgba(13,59,102,0.04);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.7rem;
+      color: var(--blue-900);
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dashboard {
+      width: min(100%, 430px);
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(13,59,102,0.08);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      position: relative;
+    }
+
+    .dashboard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dots span {
+      width: 12px;
+      height: 12px;
+      display: block;
+      border-radius: 50%;
+      background: #d9e7fb;
+    }
+
+    .dots span:nth-child(1) { background: #ff6b6b; }
+    .dots span:nth-child(2) { background: #ffd166; }
+    .dots span:nth-child(3) { background: #77dd77; }
+
+    .window-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--blue-700);
+      background: rgba(74,154,247,0.08);
+      border-radius: 999px;
+      padding: 8px 12px;
+    }
+
+    .lesson-card {
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
+      color: var(--white);
+      border-radius: 22px;
+      padding: 22px 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 18px 26px rgba(29,104,181,0.25);
+    }
+
+    .lesson-card .label {
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .lesson-card h3 {
+      margin: 10px 0 8px;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .lesson-card p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 0.96rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 16px;
+    }
+
+    .mini-box {
+      background: var(--ice);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 14px;
+    }
+
+    .mini-box strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+      color: var(--blue-900);
+    }
+
+    .mini-box span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--blue-900);
+      line-height: 1.2;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 540px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .feature {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      box-shadow: 0 12px 26px rgba(13,59,102,0.04);
+    }
+
+    .feature-icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--blue-100), #dfeeff);
+      color: var(--blue-700);
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+    }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      color: var(--blue-900);
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .resource-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .resource {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(13,59,102,0.04);
+    }
+
+    .resource-image {
+      height: 200px;
       background-size: cover;
       background-position: center;
       position: relative;
-      display: flex;
-      align-items: flex-end;
-      padding: 1rem;
     }
 
-    .card-category {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--dark);
+    .resource-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(13,59,102,0.38));
     }
 
-    .card-body {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+    .resource-body {
+      padding: 22px 20px 18px;
     }
 
-    .card-body h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-100);
+      color: var(--blue-800);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    .card-body p {
-      color: #666;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      flex: 1;
+    .resource h3 {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+      color: var(--blue-900);
     }
 
-    .card-footer {
+    .resource p {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .resource a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: var(--blue-700);
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
+      color: var(--white);
+      border-radius: 28px;
+      padding: 34px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #F0F0F0;
-      padding-top: 1rem;
+      gap: 20px;
+      box-shadow: var(--shadow);
     }
 
-    .btn-link {
-      background: var(--secondary);
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: opacity 0.2s;
+    .cta-box h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 2vw, 2.4rem);
     }
 
-    .btn-link:hover {
-      opacity: 0.9;
+    .cta-box p {
+      margin: 0;
+      max-width: 620px;
+      color: rgba(255,255,255,0.8);
+      font-size: 1.02rem;
+    }
+
+    .cta-box .btn {
+      white-space: nowrap;
+      background: var(--white);
+      color: var(--blue-800);
+      border: none;
+      box-shadow: none;
     }
 
     footer {
-      background: var(--dark);
-      color: white;
-      padding: 3rem 2rem 1.5rem;
-      margin-top: 5rem;
-      border-top: 5px solid var(--primary);
+      background: var(--blue-900);
+      color: rgba(255,255,255,0.8);
+      padding: 42px 0 28px;
+      margin-top: 80px;
     }
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
+      grid-template-columns: 1.3fr 0.8fr 0.9fr;
+      gap: 28px;
+      align-items: start;
     }
 
-    .footer-logo {
-      font-size: 1.5rem;
-      font-family: 'Fredoka', cursive;
-      color: var(--accent);
-      margin-bottom: 1rem;
+    .footer-brand {
+      font-size: 1.6rem;
+      color: var(--white);
+      font-weight: 800;
+      margin-bottom: 16px;
     }
 
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 1.5rem;
+    .footer-grid p,
+    .footer-grid li,
+    .footer-grid a {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .footer-grid ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .copy {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin-top: 30px;
+      padding-top: 18px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.7);
       text-align: center;
-      font-size: 0.85rem;
-      color: #AAA;
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
+    @media (max-width: 900px) {
+      .hero-inner,
+      .cards,
+      .resource-list,
+      .footer-grid,
+      .section-head,
+      .cta-box {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .hero-inner {
+        padding-top: 48px;
+      }
+
+      .section-head {
+        gap: 12px;
+      }
+
+      .cta-box {
+        text-align: left;
+      }
     }
 
-    .modal-content {
-      background: white;
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-    }
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
+      }
 
-    .close-modal {
-      position: absolute;
-      top: 1rem; right: 1.5rem;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #888;
-    }
+      .nav-links {
+        gap: 8px;
+      }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      .nav-links { display: none; }
-      .tip-card { flex-direction: column; text-align: center; }
+      .nav-links a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      .mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="nav-container">
-      <a href="#" class="brand-logo">
-        <i class="fa-solid fa-feather-pointed"></i> e-DigiPesa
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="TI-hüpe avaleht">
+        <span class="brand-mark"><i class="fa-solid fa-calculator"></i></span>
+        TI-hüpe
       </a>
-      <ul class="nav-links">
-        <li><a href="#" class="active">Avaleht</a></li>
-        <li><a href="#materjalid">Õpilastele</a></li>
-        <li><a href="#materjalid">Kolleegidele</a></li>
-        <li><a href="#materjalid">Digitööriistad</a></li>
-      </ul>
+
+      <nav class="nav-links" aria-label="Peamenüü">
+        <a href="#top" class="active">Avaleht</a>
+        <a href="#opilased">TI-hüpe õpilasele</a>
+        <a href="#opetajale">TI-hüpe õpetajale</a>
+        <a href="#tooriistad">Digitööriistad</a>
+        <a href="#inseneeria">Inseneeria koolis</a>
+      </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Tere tulemast e-DigiPesasse! 🚀</h1>
-      <p>Lõbus ja kasulik digipesa õppematerjalide, nutikate tööriistade ning õpetlike tippude leidmiseks.</p>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow"><i class="fa-solid fa-lightbulb"></i> Matemaatika ja digipädevus</div>
+          <h1>Matemaatika meetodid, digitaalsed tööriistad ja õpetlikud nipid.</h1>
+          <p class="lead">Lõbus ja kasulik digipesa õppematerjalide, nutikate tööriistade ning õpetlike nippide leidmiseks.</p>
 
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Otsi materjale, tööriistu või juhendeid...">
-        <button onclick="filterResources()"><i class="fa-solid fa-magnifying-glass"></i> Otsi</button>
-      </div>
-    </div>
-  </section>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#opilased"><i class="fa-solid fa-arrow-right"></i> Vaata materjale</a>
+            <a class="btn btn-secondary" href="#opetajale"><i class="fa-solid fa-chalkboard-user"></i> Õpetaja varamu</a>
+          </div>
 
-  <section class="audience-section">
-    <div class="audience-card students" onclick="setFilter('opilased')">
-      <div class="audience-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-      <h3>Õpilastele</h3>
-      <p>Aitäh, et õpid! Leia siit esitluste mallid, e-ohutuse nipid ja viktoriinid.</p>
-    </div>
+          <div class="mini-stats" aria-label="Statistika">
+            <div class="stat">
+              <strong>15+</strong>
+              <span>teemade paketti</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>põhivaldkonda</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>projektile orienteeritud</span>
+            </div>
+          </div>
+        </div>
 
-    <div class="audience-card teachers" onclick="setFilter('opejad')">
-      <div class="audience-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-      <h3>Kolleegidele</h3>
-      <p>Mõtted ja tööriistad tunni planeerimiseks, AI kasutamiseks ja digipädevuseks.</p>
-    </div>
+        <div class="hero-visual" aria-label="Kursuse väljanägemine">
+          <div class="dashboard">
+            <div class="dashboard-top">
+              <div class="dots" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="window-tag">TI-hüpe</div>
+            </div>
 
-    <div class="audience-card tools" onclick="setFilter('tooriistad')">
-      <div class="audience-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-      <h3>Digitööriistad</h3>
-      <p>Soovitatud rakendused loovuse, testide ja koostöö arendamiseks.</p>
-    </div>
-  </section>
+            <div class="lesson-card">
+              <div class="label">Nädala teemad</div>
+              <h3>Geomeetria ja modelleerimine</h3>
+              <p>Uued ideed, mis muudavad arvutamise ja kujundamise lõbusaks ja selgeks.</p>
+            </div>
 
-  <section class="tip-of-week">
-    <div class="tip-card">
-      <div style="font-size: 3.5rem; color: var(--dark);"><i class="fa-regular fa-lightbulb"></i></div>
-      <div>
-        <span class="tip-badge">Nädala Diginipp</span>
-        <h3>Kuidas luua kiirelt selgeid esitlusi Canva abil?</h3>
-        <p>Kasuta Canva "Magic Design" funktsiooni – sisesta vaid oma teema ning AI loob sulle paari sekundiga esitluse põhiplaani koos piltide ja kujundusega!</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-title" id="materjalid">
-    <h2><i class="fa-solid fa-cubes"></i> Õppematerjalid & Tööriistad</h2>
-    <div class="filter-tags">
-      <span class="tag active" onclick="filterCategory('koik', this)">Kõik</span>
-      <span class="tag" onclick="filterCategory('opilased', this)">Õpilastele</span>
-      <span class="tag" onclick="filterCategory('opejad', this)">Kolleegidele</span>
-      <span class="tag" onclick="filterCategory('tooriistad', this)">Tööriistad</span>
-    </div>
-  </div>
-
-  <section class="grid-container" id="resourceGrid">
-    <div class="resource-card" data-category="opilased">
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&q=80');">
-        <span class="card-category">Õpilastele</span>
-      </div>
-      <div class="card-body">
-        <h3>E-ohutuse Meelespea</h3>
-        <p>Kuidas hoida oma paroolid turvalisena ja vältida veebiohte? Lihtsad kuldreeglid igale õpilasele.</p>
-        <div class="card-footer">
-          <small><i class="fa-regular fa-clock"></i> 5 min lugemine</small>
-          <a href="#" class="btn-link" onclick="openModal('E-ohutuse meelespea', 'Siit leiate nõuanded turvaliseks netikasutuseks, paroolide haldamiseks ja küberkiusamise ärahoidmiseks.')">Ava materjal</a>
+            <div class="mini-grid">
+              <div class="mini-box">
+                <strong>8</strong>
+                <span>mängulist ülesannet</span>
+              </div>
+              <div class="mini-box">
+                <strong>4</strong>
+                <span>digivahendit</span>
+              </div>
+              <div class="mini-box">
+                <strong>2</strong>
+                <span>õpetaja juhendit</span>
+              </div>
+              <div class="mini-box">
+                <strong>1</strong>
+                <span>uus idee</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="resource-card" data-category="opejad">
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80');">
-        <span class="card-category">Kolleegidele</span>
+    <section class="section container" id="opilased">
+      <div class="section-head">
+        <h2>TI-hüpe õpilastele</h2>
+        <p>Õpimaterjalid, mängulised ülesanded ja praktilised ülesanded, mis aitavad matemaatikat paremini mõista.</p>
       </div>
-      <div class="card-body">
-        <h3>AI abiline tundi: ChatGPT juhend</h3>
-        <p>Praktilised näited ja viiped (promptid) õpetajale tundi ette valmistades ja töölehti luues.</p>
-        <div class="card-footer">
-          <small><i class="fa-regular fa-file-pdf"></i> PDF Juhend</small>
-          <a href="#" class="btn-link" onclick="openModal('AI Juhend', 'Juhend katab viipete koostamise aluseid ning näitab näiteid tundi diferentseerimiseks AI abil.')">Ava materjal</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="resource-card" data-category="tooriistad">
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80');">
-        <span class="card-category">Tööriistad</span>
-      </div>
-      <div class="card-body">
-        <h3>Canva Haridusele</h3>
-        <p>Suurepärane keskkond töölehtede, esitluste, plakatite ja infograafikute lihtsaks kujundamiseks.</p>
-        <div class="card-footer">
-          <small><i class="fa-solid fa-arrow-up-right-from-square"></i> Veebilink</small>
-          <a href="https://www.canva.com" target="_blank" class="btn-link">Külasta lehte</a>
-        </div>
-      </div>
-    </div>
+      <div class="cards">
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Harjutused</h3>
+          <p>Lihtsad ja interaktiivsed ülesanded, mis toetavad mõtlemist, arvutamist ja loogikat.</p>
+        </article>
 
-    <div class="resource-card" data-category="opilased">
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&q=80');">
-        <span class="card-category">Õpilastele</span>
-      </div>
-      <div class="card-body">
-        <h3>Esitluste Kujundamise Nipid</h3>
-        <p>Kuidas teha esitlust, mida on põnev kuulata? Šriftid, värvid ja struktuur.</p>
-        <div class="card-footer">
-          <small><i class="fa-regular fa-file-powerpoint"></i> Esitlus</small>
-          <a href="#" class="btn-link" onclick="openModal('Esitluste nipid', 'Koolitusmaterjal sellest, kuidas vältida tekstimassiive ning luua visuaalselt köitvaid slaide.')">Ava materjal</a>
-        </div>
-      </div>
-    </div>
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h3>Uued ideed</h3>
+          <p>Esitluslikud ja kohapealsed tegevused, kus õpilane saab oma teadmisi proovile panna.</p>
+        </article>
 
-    <div class="resource-card" data-category="tooriistad">
-      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=500&q=80');">
-        <span class="card-category">Tööriistad</span>
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>Motivatsioon</h3>
+          <p>Positiivne ja mängulisem lähenemine muudab õppimise lihtsamaks ja nauditavamaks.</p>
+        </article>
       </div>
-      <div class="card-body">
-        <h3>Kahoot! & Quizizz</h3>
-        <p>Interaktiivsed teadmiste kontrollid ja mängulised viktoriinid tundi või iseseisvaks harjutamiseks.</p>
-        <div class="card-footer">
-          <small><i class="fa-solid fa-gamepad"></i> Mängud</small>
-          <a href="https://kahoot.com" target="_blank" class="btn-link">Külasta lehte</a>
+    </section>
+
+    <section class="section container" id="opetajale">
+      <div class="section-head">
+        <h2>TI-hüpe õpetajale</h2>
+        <p>Teemad ja materjalid, mis aitavad õpetajal planeerida tunde, kasutada digivahendeid ja julgustada õppimist.</p>
+      </div>
+
+      <div class="resource-list">
+        <article class="resource">
+          <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="resource-body">
+            <div class="chip"><i class="fa-solid fa-chalkboard-user"></i> Õpetaja</div>
+            <h3>Arvutamisega seotud töölehed</h3>
+            <p>Valmised praktilised ja struktureeritud töölehed, mis on kasutatavad erinevates tundides.</p>
+            <a href="#">Vaata näidet <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="resource">
+          <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="resource-body">
+            <div class="chip"><i class="fa-solid fa-lightbulb"></i> Meetodid</div>
+            <h3>Interaktiivsed tunnivõtted</h3>
+            <p>Praktilised õpetamisetapid, millega muuta matemaatika tund palju kaasahaaravamaks.</p>
+            <a href="#">Vaata näidet <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="tooriistad">
+      <div class="section-head">
+        <h2>Digitööriistad</h2>
+        <p>Soovitatud vahendid, mis aitavad luua matemaatika õppimise jaoks huvitavaid ja motivaalseid tegevusi.</p>
+      </div>
+
+      <div class="cards">
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+          <h3>Google Workspace</h3>
+          <p>Dokumentide, slaidide ja koostöövahendite kasutamine klassis ja kaugõppes.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+          <h3>GeoGebra</h3>
+          <p>Geomeetria ja funktsioonide visualiseerimine, mis aitab õpilastel nähtavalt mõista.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
+          <h3>Kahoot & Quizizz</h3>
+          <p>Kiired kontrollküsimused ja mängulisem hindamine, mis tõstavad motivatsiooni.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="inseneeria">
+      <div class="section-head">
+        <h2>Inseneeria koolis</h2>
+        <p>Õpilastööd ja inseneeriatunni teemad, mille kaudu saate ühendada matemaatikat, loovust ja praktilist rakendamist.</p>
+      </div>
+
+      <div class="resource-list">
+        <article class="resource">
+          <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="resource-body">
+            <div class="chip"><i class="fa-solid fa-cubes"></i> Inseneeria</div>
+            <h3>Väljakutsetest loovad projektid</h3>
+            <p>Ideed ja ülesanded, kus õpilased peavad lahendama praktilisi ülesandeid ja modelleerima.</p>
+            <a href="#">Loe rohkem <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="resource">
+          <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="resource-body">
+            <div class="chip"><i class="fa-solid fa-people-group"></i> Töö</div>
+            <h3>Õpilastööde inspireerivad teemad</h3>
+            <p>Praktilised lahendused, õpetlikud väheima vastate ja prototüübid, mis seovad arvutamist ja loovust.</p>
+            <a href="#">Loe rohkem <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="cta-box">
+        <div>
+          <h3>Valmis uute ideede ja tööriistadega?</h3>
+          <p>Lisa oma tundi rohkem lõbu, selgust ja digipädevust – just nii, et õpilane näeb matemaatikat reaalses elus.</p>
         </div>
+        <a class="btn" href="#top"><i class="fa-solid fa-angle-up"></i> Tagasi üles</a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <div class="footer-container">
+    <div class="container footer-grid">
       <div>
-        <div class="footer-logo"><i class="fa-solid fa-feather-pointed"></i> e-DigiPesa</div>
-        <p style="color: #CCC; font-size: 0.9rem;">DigiPesa on õppematerjalide ja nukkide kogumik õpilastele ja õpetajatele. Teeme õppimise digitaalselt põnevaks!</p>
+        <div class="footer-brand"><i class="fa-solid fa-calculator"></i> TI-hüpe</div>
+        <p>Õppematerjalid, tööriistad, ideed ja digivahendid, mis toetavad matemaatikaga seotud õppimist ja õpetamist.</p>
       </div>
+
       <div>
-        <h4>Kiirlingid</h4>
-        <ul style="list-style: none; margin-top: 0.5rem; line-height: 2;">
-          <li><a href="#" style="color: #CCC; text-decoration: none;">Õpilaste nurk</a></li>
-          <li><a href="#" style="color: #CCC; text-decoration: none;">Õpetajate varamu</a></li>
-          <li><a href="#" style="color: #CCC; text-decoration: none;">Tööriistakast</a></li>
+        <h4 style="margin:0 0 14px; color:#fff; font-size:1.1rem;">Lehed</h4>
+        <ul>
+          <li><a href="#top">Avaleht</a></li>
+          <li><a href="#opilased">TI-hüpe õpilasele</a></li>
+          <li><a href="#opetajale">TI-hüpe õpetajale</a></li>
+          <li><a href="#tooriistad">Digitööriistad</a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Kontakt</h4>
-        <p style="color: #CCC; font-size: 0.9rem;">Haridustehnoloog / Õpetaja<br>E-post: õpetaja@kool.ee<br>Kiili Kool</p>
+        <h4 style="margin:0 0 14px; color:#fff; font-size:1.1rem;">Kontakt</h4>
+        <ul>
+          <li>E-post: õpetaja@kool.ee</li>
+          <li>Matemaatika õpetaja</li>
+          <li>TI-hüpe projekt</li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 e-DigiPesa. Kõik õigused kaitstud. Loodud õppetegevuse toetamiseks.
-    </div>
+
+    <div class="container copy">© 2026 TI-hüpe • Loodud matemaatika ja digipädevuse toetamiseks.</div>
   </footer>
-
-  <div class="modal" id="infoModal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <h3 id="modalTitle" style="font-family: 'Fredoka', cursive; font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary);">Pealkiri</h3>
-      <p id="modalBody" style="color: #555;">Sisu siia...</p>
-      <div style="margin-top: 1.5rem; text-align: right;">
-        <button onclick="closeModal()" style="background: var(--dark); color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 20px; cursor: pointer;">Sulge</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function filterCategory(cat, element) {
-      document.querySelectorAll('.tag').forEach(tag => tag.classList.remove('active'));
-      if (element) element.classList.add('active');
-
-      const cards = document.querySelectorAll('.resource-card');
-      cards.forEach(card => {
-        if (cat === 'koik' || card.dataset.category === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function setFilter(cat) {
-      const tags = document.querySelectorAll('.tag');
-      tags.forEach(tag => {
-        const text = tag.textContent.trim().toLowerCase();
-        const match =
-          (cat === 'opilased' && text.includes('õpilastele')) ||
-          (cat === 'opejad' && text.includes('kolleegidele')) ||
-          (cat === 'tooriistad' && text.includes('tööriistad'));
-        if (match) {
-          tag.click();
-        }
-      });
-      document.getElementById('materjalid').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function filterResources() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.resource-card');
-
-      cards.forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        const desc = card.querySelector('p').textContent.toLowerCase();
-        if (title.includes(query) || desc.includes(query)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    document.getElementById('searchInput').addEventListener('keyup', function(e) {
-      if (e.key === 'Enter') {
-        filterResources();
-      }
-    });
-
-    function openModal(title, text) {
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalBody').textContent = text;
-      document.getElementById('infoModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('infoModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('infoModal');
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
 </body>
 </html>
