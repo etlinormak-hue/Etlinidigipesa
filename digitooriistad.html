@@ -25,6 +25,18 @@
       --white: #ffffff;
       --shadow: 0 18px 40px rgba(13, 59, 102, 0.12);
       --radius: 24px;
+      --pink-100: #fff1f7;
+      --pink-500: #ff6fa6;
+      --purple-500: #8b5cf6;
+      --green-500: #2ec4a3;
+      --orange-500: #ff9f43;
+      --yellow-500: #f7c948;
+      --coral-500: #ff7d6b;
+      --mint-500: #6ee7b7;
+      --sky-500: #53c7ff;
+      --lavender-500: #b794ff;
+      --rose-500: #ff8db1;
+      --peach-500: #ffb36b;
     }
 
     * { box-sizing: border-box; }
@@ -34,7 +46,7 @@
     body {
       margin: 0;
       font-family: 'Nunito', sans-serif;
-      background: linear-gradient(180deg, #f7fbff 0%, #edf7ff 100%);
+      background: linear-gradient(180deg, #f9fbff 0%, #f2f8ff 100%);
       color: var(--ink);
       line-height: 1.6;
     }
@@ -86,9 +98,9 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--blue-600), var(--cyan));
+      background: linear-gradient(135deg, #ff8bbd, #ffd166 70%, #7ad9ff);
       color: var(--white);
-      box-shadow: 0 12px 24px rgba(45,126,234,0.25);
+      box-shadow: 0 12px 24px rgba(255, 143, 181, 0.25);
       font-size: 1.1rem;
     }
 
@@ -114,24 +126,83 @@
     }
 
     .page-header {
-      background: linear-gradient(135deg, #eaf5ff 0%, #dfeeff 20%, #f7fbff 100%);
+      background: linear-gradient(135deg, #fff8f1 0%, #eef8ff 20%, #f7fbff 100%);
       padding: 54px 0 48px;
       border-bottom: 1px solid rgba(13, 59, 102, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before,
+    .page-header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(4px);
+      opacity: 0.8;
+    }
+
+    .page-header::before {
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 170, 123, 0.18);
+      right: -60px;
+      top: -120px;
+    }
+
+    .page-header::after {
+      width: 260px;
+      height: 260px;
+      background: rgba(107, 190, 255, 0.18);
+      left: -50px;
+      bottom: -100px;
+    }
+
+    .page-header .container {
+      position: relative;
+      z-index: 1;
     }
 
     .page-header h1 {
       margin: 0 0 16px;
-      font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+      font-size: clamp(2.2rem, 3.5vw, 3.8rem);
       color: var(--blue-900);
       line-height: 1.1;
+      letter-spacing: -0.04em;
     }
 
     .page-header p {
       margin: 0;
       font-size: 1.1rem;
       color: var(--muted);
-      max-width: 720px;
+      max-width: 760px;
     }
+
+    .header-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid rgba(13, 59, 102, 0.08);
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 8px 18px rgba(13, 59, 102, 0.04);
+    }
+
+    .header-badge:nth-child(1) { color: #a53b7a; background: #fff0fa; }
+    .header-badge:nth-child(2) { color: #127a63; background: #ebfff9; }
+    .header-badge:nth-child(3) { color: #b55a1f; background: #fff7ec; }
 
     .section {
       padding: 72px 0;
@@ -160,6 +231,11 @@
     }
 
     .tool-card {
+      --card-accent-1: #4a9af7;
+      --card-accent-2: #62d0ff;
+      --card-soft: rgba(74, 154, 247, 0.12);
+      --card-chip: #eaf4ff;
+      --card-chip-text: #134b90;
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -168,6 +244,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
 
     .tool-card:hover {
@@ -175,28 +252,84 @@
       box-shadow: 0 18px 36px rgba(13,59,102,0.12);
     }
 
+    .tool-card:nth-child(3n+1) {
+      --card-accent-1: #ff7bb9;
+      --card-accent-2: #ffb86c;
+      --card-soft: rgba(255, 123, 185, 0.12);
+      --card-chip: #fff0f8;
+      --card-chip-text: #9d4379;
+    }
+
+    .tool-card:nth-child(3n+2) {
+      --card-accent-1: #5dc9a6;
+      --card-accent-2: #7bc4ff;
+      --card-soft: rgba(93, 201, 166, 0.12);
+      --card-chip: #ebfff8;
+      --card-chip-text: #0d6b59;
+    }
+
+    .tool-card:nth-child(3n+3) {
+      --card-accent-1: #7a6ef6;
+      --card-accent-2: #ff9f80;
+      --card-soft: rgba(122, 110, 246, 0.12);
+      --card-chip: #f2eeff;
+      --card-chip-text: #5147b8;
+    }
+
+    .tool-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px auto auto 14px;
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.18);
+      transform: rotate(12deg);
+      z-index: 0;
+    }
+
     .tool-header {
-      background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
+      background: linear-gradient(135deg, var(--card-accent-1), var(--card-accent-2));
       color: var(--white);
       padding: 28px 24px;
       display: flex;
       align-items: center;
       gap: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .tool-icon {
       width: 60px;
       height: 60px;
-      border-radius: 16px;
+      border-radius: 18px;
       display: grid;
       place-items: center;
       background: rgba(255,255,255,0.2);
       font-size: 1.8rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+      position: relative;
+    }
+
+    .tool-icon::after {
+      content: "✦";
+      position: absolute;
+      top: -8px;
+      right: -6px;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      color: var(--white);
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
     }
 
     .tool-title {
       margin: 0;
       font-size: 1.35rem;
+      letter-spacing: -0.02em;
     }
 
     .tool-body {
@@ -204,6 +337,8 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      position: relative;
+      z-index: 1;
     }
 
     .tool-description {
@@ -223,8 +358,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--blue-100);
-      color: var(--blue-800);
+      background: var(--card-chip);
+      color: var(--card-chip-text);
       border-radius: 999px;
       padding: 6px 12px;
       font-size: 0.75rem;
@@ -247,7 +382,7 @@
       justify-content: center;
       gap: 8px;
       padding: 10px 16px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: 700;
       font-size: 0.9rem;
       letter-spacing: 0.02em;
@@ -257,24 +392,26 @@
     }
 
     .btn-primary {
-      background: var(--blue-700);
+      background: linear-gradient(135deg, var(--card-accent-1), var(--card-accent-2));
       color: var(--white);
       flex: 1;
+      box-shadow: 0 12px 18px rgba(122, 110, 246, 0.18);
     }
 
     .btn-primary:hover {
-      background: var(--blue-800);
       transform: translateY(-1px);
+      filter: saturate(1.04);
     }
 
     .btn-secondary {
-      background: var(--blue-100);
-      color: var(--blue-800);
+      background: var(--card-soft);
+      color: var(--card-chip-text);
       flex: 1;
+      border-color: rgba(255,255,255,0.25);
     }
 
     .btn-secondary:hover {
-      background: var(--blue-200);
+      background: rgba(255,255,255,0.8);
     }
 
     .btn-small {
@@ -401,6 +538,11 @@
       <div class="container">
         <h1>Digitööriistad</h1>
         <p>Soovitatud ja testitud rakendused, mis aitavad matemaatika õppimist ja õpetamist muuta lõbusaks, selgeks ja digitaalselt pädevaks.</p>
+        <div class="header-badges" aria-label="Ikooni märkmed">
+          <span class="header-badge"><i class="fa-solid fa-sparkles"></i> Lõbus</span>
+          <span class="header-badge"><i class="fa-solid fa-bolt"></i> Kiire</span>
+          <span class="header-badge"><i class="fa-solid fa-rocket"></i> Kreatiivne</span>
+        </div>
       </div>
     </section>
 
