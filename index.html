@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-DigiPesa | Õppematerjalid & Diginipid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF6B6B;
+      --secondary: #4ECDC4;
+      --accent: #FFE66D;
+      --purple: #9A7AA0;
+      --dark: #2B2D42;
+      --light-bg: #FFF9F2;
+      --radius: 20px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand-logo {
+      font-family: 'Fredoka', cursive;
+    }
+
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo i {
+      background: var(--accent);
+      color: var(--dark);
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      transform: rotate(-10deg);
+      transition: transform 0.3s;
+    }
+
+    .brand-logo:hover i {
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      transition: all 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+      padding: 4rem 2rem;
+      border-radius: 0 0 50px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 0px white;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #4A4A4A;
+    }
+
+    .search-box {
+      background: white;
+      padding: 8px;
+      border-radius: 50px;
+      display: flex;
+      box-shadow: var(--shadow);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      flex: 1;
+      border-radius: 50px;
+      font-family: inherit;
+    }
+
+    .search-box button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Fredoka', cursive;
+      font-size: 1.1rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .search-box button:hover {
+      background: #ff5252;
+      transform: scale(1.05);
+    }
+
+    .audience-section {
+      max-width: 1200px;
+      margin: -40px auto 3rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .audience-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 3px solid transparent;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .audience-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .audience-card.students { border-color: var(--secondary); }
+    .audience-card.teachers { border-color: var(--primary); }
+    .audience-card.tools { border-color: var(--purple); }
+
+    .audience-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 2rem;
+    }
+
+    .students .audience-icon { background: #E6FFFA; color: var(--secondary); }
+    .teachers .audience-icon { background: #FFE5E5; color: var(--primary); }
+    .tools .audience-icon { background: #F3E8FF; color: var(--purple); }
+
+    .tip-of-week {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .tip-card {
+      background: linear-gradient(135deg, #FFE66D, #FFB347);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .tip-badge {
+      background: var(--dark);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      max-width: 1200px;
+      margin: 3rem auto 1.5rem;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--dark);
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: white;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 2px solid #E2E8F0;
+      transition: all 0.2s;
+    }
+
+    .tag.active, .tag:hover {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+
+    .grid-container {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .resource-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-banner {
+      height: 140px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .card-category {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #F0F0F0;
+      padding-top: 1rem;
+    }
+
+    .btn-link {
+      background: var(--secondary);
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-link:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 2rem 1.5rem;
+      margin-top: 5rem;
+      border-top: 5px solid var(--primary);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-family: 'Fredoka', cursive;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #AAA;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .nav-links { display: none; }
+      .tip-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-feather-pointed"></i> e-DigiPesa
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Avaleht</a></li>
+        <li><a href="#materjalid">Õpilastele</a></li>
+        <li><a href="#materjalid">Kolleegidele</a></li>
+        <li><a href="#materjalid">Digitööriistad</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Tere tulemast e-DigiPesasse! 🚀</h1>
+      <p>Lõbus ja kasulik digipesa õppematerjalide, nutikate tööriistade ning õpetlike tippude leidmiseks.</p>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Otsi materjale, tööriistu või juhendeid...">
+        <button onclick="filterResources()"><i class="fa-solid fa-magnifying-glass"></i> Otsi</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="audience-section">
+    <div class="audience-card students" onclick="setFilter('opilased')">
+      <div class="audience-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <h3>Õpilastele</h3>
+      <p>Aitäh, et õpid! Leia siit esitluste mallid, e-ohutuse nipid ja viktoriinid.</p>
+    </div>
+
+    <div class="audience-card teachers" onclick="setFilter('opejad')">
+      <div class="audience-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+      <h3>Kolleegidele</h3>
+      <p>Mõtted ja tööriistad tunni planeerimiseks, AI kasutamiseks ja digipädevuseks.</p>
+    </div>
+
+    <div class="audience-card tools" onclick="setFilter('tooriistad')">
+      <div class="audience-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <h3>Digitööriistad</h3>
+      <p>Soovitatud rakendused loovuse, testide ja koostöö arendamiseks.</p>
+    </div>
+  </section>
+
+  <section class="tip-of-week">
+    <div class="tip-card">
+      <div style="font-size: 3.5rem; color: var(--dark);"><i class="fa-regular fa-lightbulb"></i></div>
+      <div>
+        <span class="tip-badge">Nädala Diginipp</span>
+        <h3>Kuidas luua kiirelt selgeid esitlusi Canva abil?</h3>
+        <p>Kasuta Canva "Magic Design" funktsiooni – sisesta vaid oma teema ning AI loob sulle paari sekundiga esitluse põhiplaani koos piltide ja kujundusega!</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title" id="materjalid">
+    <h2><i class="fa-solid fa-cubes"></i> Õppematerjalid & Tööriistad</h2>
+    <div class="filter-tags">
+      <span class="tag active" onclick="filterCategory('koik', this)">Kõik</span>
+      <span class="tag" onclick="filterCategory('opilased', this)">Õpilastele</span>
+      <span class="tag" onclick="filterCategory('opejad', this)">Kolleegidele</span>
+      <span class="tag" onclick="filterCategory('tooriistad', this)">Tööriistad</span>
+    </div>
+  </div>
+
+  <section class="grid-container" id="resourceGrid">
+    <div class="resource-card" data-category="opilased">
+      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&q=80');">
+        <span class="card-category">Õpilastele</span>
+      </div>
+      <div class="card-body">
+        <h3>E-ohutuse Meelespea</h3>
+        <p>Kuidas hoida oma paroolid turvalisena ja vältida veebiohte? Lihtsad kuldreeglid igale õpilasele.</p>
+        <div class="card-footer">
+          <small><i class="fa-regular fa-clock"></i> 5 min lugemine</small>
+          <a href="#" class="btn-link" onclick="openModal('E-ohutuse meelespea', 'Siit leiate nõuanded turvaliseks netikasutuseks, paroolide haldamiseks ja küberkiusamise ärahoidmiseks.')">Ava materjal</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="opejad">
+      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80');">
+        <span class="card-category">Kolleegidele</span>
+      </div>
+      <div class="card-body">
+        <h3>AI abiline tundi: ChatGPT juhend</h3>
+        <p>Praktilised näited ja viiped (promptid) õpetajale tundi ette valmistades ja töölehti luues.</p>
+        <div class="card-footer">
+          <small><i class="fa-regular fa-file-pdf"></i> PDF Juhend</small>
+          <a href="#" class="btn-link" onclick="openModal('AI Juhend', 'Juhend katab viipete koostamise aluseid ning näitab näiteid tundi diferentseerimiseks AI abil.')">Ava materjal</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="tooriistad">
+      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80');">
+        <span class="card-category">Tööriistad</span>
+      </div>
+      <div class="card-body">
+        <h3>Canva Haridusele</h3>
+        <p>Suurepärane keskkond töölehtede, esitluste, plakatite ja infograafikute lihtsaks kujundamiseks.</p>
+        <div class="card-footer">
+          <small><i class="fa-solid fa-arrow-up-right-from-square"></i> Veebilink</small>
+          <a href="https://www.canva.com" target="_blank" class="btn-link">Külasta lehte</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="opilased">
+      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500&q=80');">
+        <span class="card-category">Õpilastele</span>
+      </div>
+      <div class="card-body">
+        <h3>Esitluste Kujundamise Nipid</h3>
+        <p>Kuidas teha esitlust, mida on põnev kuulata? Šriftid, värvid ja struktuur.</p>
+        <div class="card-footer">
+          <small><i class="fa-regular fa-file-powerpoint"></i> Esitlus</small>
+          <a href="#" class="btn-link" onclick="openModal('Esitluste nipid', 'Koolitusmaterjal sellest, kuidas vältida tekstimassiive ning luua visuaalselt köitvaid slaide.')">Ava materjal</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="tooriistad">
+      <div class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=500&q=80');">
+        <span class="card-category">Tööriistad</span>
+      </div>
+      <div class="card-body">
+        <h3>Kahoot! & Quizizz</h3>
+        <p>Interaktiivsed teadmiste kontrollid ja mängulised viktoriinid tundi või iseseisvaks harjutamiseks.</p>
+        <div class="card-footer">
+          <small><i class="fa-solid fa-gamepad"></i> Mängud</small>
+          <a href="https://kahoot.com" target="_blank" class="btn-link">Külasta lehte</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-logo"><i class="fa-solid fa-feather-pointed"></i> e-DigiPesa</div>
+        <p style="color: #CCC; font-size: 0.9rem;">DigiPesa on õppematerjalide ja nukkide kogumik õpilastele ja õpetajatele. Teeme õppimise digitaalselt põnevaks!</p>
+      </div>
+      <div>
+        <h4>Kiirlingid</h4>
+        <ul style="list-style: none; margin-top: 0.5rem; line-height: 2;">
+          <li><a href="#" style="color: #CCC; text-decoration: none;">Õpilaste nurk</a></li>
+          <li><a href="#" style="color: #CCC; text-decoration: none;">Õpetajate varamu</a></li>
+          <li><a href="#" style="color: #CCC; text-decoration: none;">Tööriistakast</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p style="color: #CCC; font-size: 0.9rem;">Haridustehnoloog / Õpetaja<br>E-post: õpetaja@kool.ee<br>Kiili Kool</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 e-DigiPesa. Kõik õigused kaitstud. Loodud õppetegevuse toetamiseks.
+    </div>
+  </footer>
+
+  <div class="modal" id="infoModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle" style="font-family: 'Fredoka', cursive; font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary);">Pealkiri</h3>
+      <p id="modalBody" style="color: #555;">Sisu siia...</p>
+      <div style="margin-top: 1.5rem; text-align: right;">
+        <button onclick="closeModal()" style="background: var(--dark); color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 20px; cursor: pointer;">Sulge</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function filterCategory(cat, element) {
+      document.querySelectorAll('.tag').forEach(tag => tag.classList.remove('active'));
+      if (element) element.classList.add('active');
+
+      const cards = document.querySelectorAll('.resource-card');
+      cards.forEach(card => {
+        if (cat === 'koik' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function setFilter(cat) {
+      const tags = document.querySelectorAll('.tag');
+      tags.forEach(tag => {
+        const text = tag.textContent.trim().toLowerCase();
+        const match =
+          (cat === 'opilased' && text.includes('õpilastele')) ||
+          (cat === 'opejad' && text.includes('kolleegidele')) ||
+          (cat === 'tooriistad' && text.includes('tööriistad'));
+        if (match) {
+          tag.click();
+        }
+      });
+      document.getElementById('materjalid').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function filterResources() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.resource-card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
+        if (title.includes(query) || desc.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') {
+        filterResources();
+      }
+    });
+
+    function openModal(title, text) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').textContent = text;
+      document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('infoModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('infoModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
