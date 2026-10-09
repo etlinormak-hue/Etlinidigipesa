@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TI-hüpe | Digimaterjalid ja õpetlikud nipid</title>
+  <title>Etlini DigiPesa | Digimaterjalid ja õpetlikud nipid</title>
   <meta name="description" content="Lõbus ja kasulik digipesa õppematerjalide, nutikate tööriistade ning õpetlike nippide leidmiseks." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,9 +28,7 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: 'Nunito', sans-serif;
@@ -38,590 +36,138 @@
       color: var(--ink);
       line-height: 1.6;
     }
-
     img { max-width: 100%; display: block; }
-
     a { text-decoration: none; color: inherit; }
-
-    h1, h2, h3, h4, .brand, .btn, .chip {
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .container {
-      width: min(1200px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
+    h1, h2, h3, h4, .brand, .btn, .chip { font-family: 'Montserrat', sans-serif; }
+    .container { width: min(1200px, calc(100% - 32px)); margin: 0 auto; }
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(13, 59, 102, 0.08);
-      box-shadow: 0 8px 24px rgba(13,59,102,0.04);
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(13,59,102,0.08); box-shadow: 0 8px 24px rgba(13,59,102,0.04);
     }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 78px;
-      gap: 16px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 1.45rem;
-      color: var(--blue-900);
-      letter-spacing: 0.02em;
-    }
-
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.45rem; color: var(--blue-900); letter-spacing: 0.02em; }
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--blue-600), var(--cyan));
-      color: var(--white);
-      box-shadow: 0 12px 24px rgba(45,126,234,0.25);
-      font-size: 1.1rem;
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--blue-600), var(--cyan)); color: var(--white);
+      box-shadow: 0 12px 24px rgba(45,126,234,0.25); font-size: 1.1rem;
     }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
     .nav-links a {
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 700;
-      color: var(--blue-900);
-      transition: all 0.2s ease;
+      padding: 10px 14px; border-radius: 999px; font-weight: 700; color: var(--blue-900); transition: all 0.2s ease;
     }
+    .nav-links a:hover, .nav-links a.active { background: var(--blue-100); color: var(--blue-800); }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: var(--blue-100);
-      color: var(--blue-800);
+    .hero { background: linear-gradient(135deg, #eaf5ff 0%, #dfeeff 20%, #f7fbff 100%); position: relative; overflow: hidden; }
+    .hero::before, .hero::after {
+      content: ""; position: absolute; border-radius: 50%; background: rgba(74,154,247,0.08); filter: blur(4px);
     }
-
-    .hero {
-      background: linear-gradient(135deg, #eaf5ff 0%, #dfeeff 20%, #f7fbff 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(74, 154, 247, 0.08);
-      filter: blur(4px);
-    }
-
-    .hero::before {
-      width: 520px;
-      height: 520px;
-      right: -120px;
-      top: -150px;
-    }
-
-    .hero::after {
-      width: 480px;
-      height: 480px;
-      left: -160px;
-      bottom: -180px;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: center;
-      padding: 72px 0 54px;
-      position: relative;
-      z-index: 1;
-    }
-
+    .hero::before { width: 520px; height: 520px; right: -120px; top: -150px; }
+    .hero::after { width: 480px; height: 480px; left: -160px; bottom: -180px; }
+    .hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; padding: 72px 0 54px; position: relative; z-index: 1; }
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(29, 104, 181, 0.08);
-      border: 1px solid rgba(29,104,181,0.1);
-      color: var(--blue-800);
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+      background: rgba(29,104,181,0.08); border: 1px solid rgba(29,104,181,0.1); color: var(--blue-800);
+      font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.72rem; margin-bottom: 16px;
     }
-
-    h1 {
-      margin: 0 0 22px;
-      font-size: clamp(2.4rem, 4vw, 4.1rem);
-      line-height: 1.08;
-      color: var(--blue-900);
-      letter-spacing: -0.04em;
-    }
-
-    .lead {
-      font-size: 1.2rem;
-      color: var(--muted);
-      max-width: 630px;
-      margin-bottom: 28px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-
+    h1 { margin: 0 0 22px; font-size: clamp(2.4rem, 4vw, 4.1rem); line-height: 1.08; color: var(--blue-900); letter-spacing: -0.04em; }
+    .lead { font-size: 1.2rem; color: var(--muted); max-width: 630px; margin-bottom: 28px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      border-radius: 14px;
-      padding: 0 22px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 1px solid transparent;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; border-radius: 14px;
+      padding: 0 22px; font-weight: 800; letter-spacing: 0.02em; transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid transparent;
     }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--blue-700), var(--blue-500)); color: var(--white); box-shadow: 0 16px 24px rgba(45,126,234,0.28); }
+    .btn-secondary { background: var(--white); border-color: var(--line); color: var(--blue-900); }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
-      color: var(--white);
-      box-shadow: 0 16px 24px rgba(45, 126, 234, 0.28);
-    }
-
-    .btn-secondary {
-      background: var(--white);
-      border-color: var(--line);
-      color: var(--blue-900);
-    }
-
-    .mini-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(120px, 1fr));
-      gap: 16px;
-      max-width: 640px;
-    }
-
+    .mini-stats { display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); gap: 16px; max-width: 640px; }
     .stat {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(13,59,102,0.08);
-      border-radius: 18px;
-      padding: 20px 18px;
-      box-shadow: 0 10px 24px rgba(13,59,102,0.04);
+      background: rgba(255,255,255,0.7); border: 1px solid rgba(13,59,102,0.08); border-radius: 18px; padding: 20px 18px; box-shadow: 0 10px 24px rgba(13,59,102,0.04);
     }
+    .stat strong { display: block; font-size: 1.7rem; color: var(--blue-900); margin-bottom: 4px; }
+    .stat span { color: var(--muted); font-size: 0.92rem; font-weight: 700; }
 
-    .stat strong {
-      display: block;
-      font-size: 1.7rem;
-      color: var(--blue-900);
-      margin-bottom: 4px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 700;
-    }
-
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
+    .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
     .dashboard {
-      width: min(100%, 430px);
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(13,59,102,0.08);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 24px;
-      position: relative;
+      width: min(100%, 430px); background: rgba(255,255,255,0.8); border: 1px solid rgba(13,59,102,0.08); border-radius: 28px;
+      box-shadow: var(--shadow); padding: 24px; position: relative;
     }
-
-    .dashboard-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-    }
-
-    .dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .dots span {
-      width: 12px;
-      height: 12px;
-      display: block;
-      border-radius: 50%;
-      background: #d9e7fb;
-    }
-
+    .dashboard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+    .dots { display: flex; gap: 8px; }
+    .dots span { width: 12px; height: 12px; display: block; border-radius: 50%; background: #d9e7fb; }
     .dots span:nth-child(1) { background: #ff6b6b; }
     .dots span:nth-child(2) { background: #ffd166; }
     .dots span:nth-child(3) { background: #77dd77; }
+    .window-tag { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--blue-700); background: rgba(74,154,247,0.08); border-radius: 999px; padding: 8px 12px; }
+    .lesson-card { background: linear-gradient(135deg, var(--blue-800), var(--blue-600)); color: var(--white); border-radius: 22px; padding: 22px 20px; margin-bottom: 18px; box-shadow: 0 18px 26px rgba(29,104,181,0.25); }
+    .lesson-card .label { font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
+    .lesson-card h3 { margin: 10px 0 8px; font-size: 1.65rem; line-height: 1.2; }
+    .lesson-card p { margin: 0; opacity: 0.9; font-size: 0.96rem; }
+    .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 16px; }
+    .mini-box { background: var(--ice); border: 1px solid var(--line); border-radius: 18px; padding: 16px 14px; }
+    .mini-box strong { display: block; font-size: 1.3rem; margin-bottom: 4px; color: var(--blue-900); }
+    .mini-box span { color: var(--muted); font-size: 0.82rem; font-weight: 700; }
 
-    .window-tag {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--blue-700);
-      background: rgba(74,154,247,0.08);
-      border-radius: 999px;
-      padding: 8px 12px;
-    }
+    .section { padding: 86px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-head h2 { margin: 0; font-size: clamp(2rem, 3vw, 2.8rem); color: var(--blue-900); line-height: 1.2; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 540px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
+    .feature { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 22px; box-shadow: 0 12px 26px rgba(13,59,102,0.04); }
+    .feature-icon { width: 62px; height: 62px; display: grid; place-items: center; border-radius: 18px; background: linear-gradient(135deg, var(--blue-100), #dfeeff); color: var(--blue-700); margin-bottom: 18px; font-size: 1.5rem; }
+    .feature h3 { margin: 0 0 10px; font-size: 1.35rem; color: var(--blue-900); }
+    .feature p { margin: 0; color: var(--muted); }
 
-    .lesson-card {
-      background: linear-gradient(135deg, var(--blue-800), var(--blue-600));
-      color: var(--white);
-      border-radius: 22px;
-      padding: 22px 20px;
-      margin-bottom: 18px;
-      box-shadow: 0 18px 26px rgba(29,104,181,0.25);
-    }
+    .resource-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; margin-top: 30px; }
+    .resource { background: var(--white); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; box-shadow: 0 12px 28px rgba(13,59,102,0.04); }
+    .resource-image { height: 200px; background-size: cover; background-position: center; position: relative; }
+    .resource-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(13,59,102,0.38)); }
+    .resource-body { padding: 22px 20px 18px; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-100); color: var(--blue-800); border-radius: 999px; padding: 8px 12px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px; }
+    .resource h3 { margin: 0 0 8px; font-size: 1.4rem; color: var(--blue-900); }
+    .resource p { color: var(--muted); margin: 0 0 18px; }
+    .resource a { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: var(--blue-700); }
 
-    .lesson-card .label {
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
+    .cta-box { background: linear-gradient(135deg, var(--blue-900), var(--blue-700)); color: var(--white); border-radius: 28px; padding: 34px 30px; display: flex; justify-content: space-between; align-items: center; gap: 20px; box-shadow: var(--shadow); }
+    .cta-box h3 { margin: 0 0 8px; font-size: clamp(1.7rem, 2vw, 2.4rem); }
+    .cta-box p { margin: 0; max-width: 620px; color: rgba(255,255,255,0.8); font-size: 1.02rem; }
+    .cta-box .btn { white-space: nowrap; background: var(--white); color: var(--blue-800); border: none; box-shadow: none; }
 
-    .lesson-card h3 {
-      margin: 10px 0 8px;
-      font-size: 1.65rem;
-      line-height: 1.2;
-    }
-
-    .lesson-card p {
-      margin: 0;
-      opacity: 0.9;
-      font-size: 0.96rem;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(120px, 1fr));
-      gap: 16px;
-    }
-
-    .mini-box {
-      background: var(--ice);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px 14px;
-    }
-
-    .mini-box strong {
-      display: block;
-      font-size: 1.3rem;
-      margin-bottom: 4px;
-      color: var(--blue-900);
-    }
-
-    .mini-box span {
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .section {
-      padding: 86px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      color: var(--blue-900);
-      line-height: 1.2;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 540px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .feature {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px 22px;
-      box-shadow: 0 12px 26px rgba(13,59,102,0.04);
-    }
-
-    .feature-icon {
-      width: 62px;
-      height: 62px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      background: linear-gradient(135deg, var(--blue-100), #dfeeff);
-      color: var(--blue-700);
-      margin-bottom: 18px;
-      font-size: 1.5rem;
-    }
-
-    .feature h3 {
-      margin: 0 0 10px;
-      font-size: 1.35rem;
-      color: var(--blue-900);
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .resource-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 30px;
-    }
-
-    .resource {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(13,59,102,0.04);
-    }
-
-    .resource-image {
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-
-    .resource-image::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent, rgba(13,59,102,0.38));
-    }
-
-    .resource-body {
-      padding: 22px 20px 18px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--blue-100);
-      color: var(--blue-800);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .resource h3 {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
-      color: var(--blue-900);
-    }
-
-    .resource p {
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-
-    .resource a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 800;
-      color: var(--blue-700);
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
-      color: var(--white);
-      border-radius: 28px;
-      padding: 34px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-box h3 {
-      margin: 0 0 8px;
-      font-size: clamp(1.7rem, 2vw, 2.4rem);
-    }
-
-    .cta-box p {
-      margin: 0;
-      max-width: 620px;
-      color: rgba(255,255,255,0.8);
-      font-size: 1.02rem;
-    }
-
-    .cta-box .btn {
-      white-space: nowrap;
-      background: var(--white);
-      color: var(--blue-800);
-      border: none;
-      box-shadow: none;
-    }
-
-    footer {
-      background: var(--blue-900);
-      color: rgba(255,255,255,0.8);
-      padding: 42px 0 28px;
-      margin-top: 80px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.8fr 0.9fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .footer-brand {
-      font-size: 1.6rem;
-      color: var(--white);
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .footer-grid p,
-    .footer-grid li,
-    .footer-grid a {
-      color: rgba(255,255,255,0.72);
-    }
-
-    .footer-grid ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .copy {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      margin-top: 30px;
-      padding-top: 18px;
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-    }
+    footer { background: var(--blue-900); color: rgba(255,255,255,0.8); padding: 42px 0 28px; margin-top: 80px; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr 0.8fr 0.9fr; gap: 28px; align-items: start; }
+    .footer-brand { font-size: 1.6rem; color: var(--white); font-weight: 800; margin-bottom: 16px; }
+    .footer-grid p, .footer-grid li, .footer-grid a { color: rgba(255,255,255,0.72); }
+    .footer-grid ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .copy { border-top: 1px solid rgba(255,255,255,0.12); margin-top: 30px; padding-top: 18px; font-size: 0.92rem; color: rgba(255,255,255,0.7); text-align: center; }
 
     @media (max-width: 900px) {
-      .hero-inner,
-      .cards,
-      .resource-list,
-      .footer-grid,
-      .section-head,
-      .cta-box {
-        grid-template-columns: 1fr;
-        display: grid;
-      }
-
-      .hero-inner {
-        padding-top: 48px;
-      }
-
-      .section-head {
-        gap: 12px;
-      }
-
-      .cta-box {
-        text-align: left;
-      }
+      .hero-inner, .cards, .resource-list, .footer-grid, .section-head, .cta-box { grid-template-columns: 1fr; display: grid; }
+      .hero-inner { padding-top: 48px; }
+      .section-head { gap: 12px; }
+      .cta-box { text-align: left; }
     }
-
     @media (max-width: 640px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 16px 0;
-      }
-
-      .nav-links {
-        gap: 8px;
-      }
-
-      .nav-links a {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-      }
-
-      .mini-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .mini-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .nav { flex-direction: column; align-items: flex-start; padding: 16px 0; }
+      .nav-links { gap: 8px; }
+      .nav-links a { padding: 8px 12px; font-size: 0.9rem; }
+      .mini-stats { grid-template-columns: 1fr; }
+      .mini-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container nav">
-      <a href="#top" class="brand" aria-label="TI-hüpe avaleht">
-        <span class="brand-mark"><i class="fa-solid fa-calculator"></i></span>
-        TI-hüpe
+      <a href="#top" class="brand" aria-label="Etlini DigiPesa avaleht">
+        <span class="brand-mark"><i class="fa-solid fa-book"></i></span>
+        Etlini DigiPesa
       </a>
-
       <nav class="nav-links" aria-label="Peamenüü">
         <a href="#top" class="active">Avaleht</a>
-        <a href="#opilased">TI-hüpe õpilasele</a>
-        <a href="#opetajale">TI-hüpe õpetajale</a>
-        <a href="#tooriistad">Digitööriistad</a>
+        <a href="#opilased">Etlini DigiPesa õpilasele</a>
+        <a href="#opetajale">Etlini DigiPesa õpetajale</a>
+        <a href="digitooriistad.html">Digitööriistad</a>
         <a href="#inseneeria">Inseneeria koolis</a>
       </nav>
     </div>
@@ -634,62 +180,33 @@
           <div class="eyebrow"><i class="fa-solid fa-lightbulb"></i> Matemaatika ja digipädevus</div>
           <h1>Matemaatika meetodid, digitaalsed tööriistad ja õpetlikud nipid.</h1>
           <p class="lead">Lõbus ja kasulik digipesa õppematerjalide, nutikate tööriistade ning õpetlike nippide leidmiseks.</p>
-
           <div class="cta-row">
             <a class="btn btn-primary" href="#opilased"><i class="fa-solid fa-arrow-right"></i> Vaata materjale</a>
             <a class="btn btn-secondary" href="#opetajale"><i class="fa-solid fa-chalkboard-user"></i> Õpetaja varamu</a>
           </div>
-
           <div class="mini-stats" aria-label="Statistika">
-            <div class="stat">
-              <strong>15+</strong>
-              <span>teemade paketti</span>
-            </div>
-            <div class="stat">
-              <strong>3</strong>
-              <span>põhivaldkonda</span>
-            </div>
-            <div class="stat">
-              <strong>100%</strong>
-              <span>projektile orienteeritud</span>
-            </div>
+            <div class="stat"><strong>15+</strong><span>teemade paketti</span></div>
+            <div class="stat"><strong>3</strong><span>põhivaldkonda</span></div>
+            <div class="stat"><strong>100%</strong><span>projektile orienteeritud</span></div>
           </div>
         </div>
 
         <div class="hero-visual" aria-label="Kursuse väljanägemine">
           <div class="dashboard">
             <div class="dashboard-top">
-              <div class="dots" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="window-tag">TI-hüpe</div>
+              <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="window-tag">Etlini DigiPesa</div>
             </div>
-
             <div class="lesson-card">
               <div class="label">Nädala teemad</div>
               <h3>Geomeetria ja modelleerimine</h3>
               <p>Uued ideed, mis muudavad arvutamise ja kujundamise lõbusaks ja selgeks.</p>
             </div>
-
             <div class="mini-grid">
-              <div class="mini-box">
-                <strong>8</strong>
-                <span>mängulist ülesannet</span>
-              </div>
-              <div class="mini-box">
-                <strong>4</strong>
-                <span>digivahendit</span>
-              </div>
-              <div class="mini-box">
-                <strong>2</strong>
-                <span>õpetaja juhendit</span>
-              </div>
-              <div class="mini-box">
-                <strong>1</strong>
-                <span>uus idee</span>
-              </div>
+              <div class="mini-box"><strong>8</strong><span>mängulist ülesannet</span></div>
+              <div class="mini-box"><strong>4</strong><span>digivahendit</span></div>
+              <div class="mini-box"><strong>2</strong><span>õpetaja juhendit</span></div>
+              <div class="mini-box"><strong>1</strong><span>uus idee</span></div>
             </div>
           </div>
         </div>
@@ -698,23 +215,20 @@
 
     <section class="section container" id="opilased">
       <div class="section-head">
-        <h2>TI-hüpe õpilastele</h2>
+        <h2>Etlini DigiPesa õpilastele</h2>
         <p>Õpimaterjalid, mängulised ülesanded ja praktilised ülesanded, mis aitavad matemaatikat paremini mõista.</p>
       </div>
-
       <div class="cards">
         <article class="feature">
           <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
           <h3>Harjutused</h3>
           <p>Lihtsad ja interaktiivsed ülesanded, mis toetavad mõtlemist, arvutamist ja loogikat.</p>
         </article>
-
         <article class="feature">
           <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
           <h3>Uued ideed</h3>
           <p>Esitluslikud ja kohapealsed tegevused, kus õpilane saab oma teadmisi proovile panna.</p>
         </article>
-
         <article class="feature">
           <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
           <h3>Motivatsioon</h3>
@@ -725,10 +239,9 @@
 
     <section class="section container" id="opetajale">
       <div class="section-head">
-        <h2>TI-hüpe õpetajale</h2>
+        <h2>Etlini DigiPesa õpetajale</h2>
         <p>Teemad ja materjalid, mis aitavad õpetajal planeerida tunde, kasutada digivahendeid ja julgustada õppimist.</p>
       </div>
-
       <div class="resource-list">
         <article class="resource">
           <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80');"></div>
@@ -739,7 +252,6 @@
             <a href="#">Vaata näidet <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
-
         <article class="resource">
           <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="resource-body">
@@ -757,20 +269,17 @@
         <h2>Digitööriistad</h2>
         <p>Soovitatud vahendid, mis aitavad luua matemaatika õppimise jaoks huvitavaid ja motivaalseid tegevusi.</p>
       </div>
-
       <div class="cards">
         <article class="feature">
           <div class="feature-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
           <h3>Google Workspace</h3>
           <p>Dokumentide, slaidide ja koostöövahendite kasutamine klassis ja kaugõppes.</p>
         </article>
-
         <article class="feature">
           <div class="feature-icon"><i class="fa-solid fa-pen-ruler"></i></div>
           <h3>GeoGebra</h3>
           <p>Geomeetria ja funktsioonide visualiseerimine, mis aitab õpilastel nähtavalt mõista.</p>
         </article>
-
         <article class="feature">
           <div class="feature-icon"><i class="fa-solid fa-square-poll-vertical"></i></div>
           <h3>Kahoot & Quizizz</h3>
@@ -784,7 +293,6 @@
         <h2>Inseneeria koolis</h2>
         <p>Õpilastööd ja inseneeriatunni teemad, mille kaudu saate ühendada matemaatikat, loovust ja praktilist rakendamist.</p>
       </div>
-
       <div class="resource-list">
         <article class="resource">
           <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');"></div>
@@ -795,7 +303,6 @@
             <a href="#">Loe rohkem <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </article>
-
         <article class="resource">
           <div class="resource-image" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80');"></div>
           <div class="resource-body">
@@ -822,31 +329,28 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <div class="footer-brand"><i class="fa-solid fa-calculator"></i> TI-hüpe</div>
+        <div class="footer-brand"><i class="fa-solid fa-book"></i> Etlini DigiPesa</div>
         <p>Õppematerjalid, tööriistad, ideed ja digivahendid, mis toetavad matemaatikaga seotud õppimist ja õpetamist.</p>
       </div>
-
       <div>
         <h4 style="margin:0 0 14px; color:#fff; font-size:1.1rem;">Lehed</h4>
         <ul>
           <li><a href="#top">Avaleht</a></li>
-          <li><a href="#opilased">TI-hüpe õpilasele</a></li>
-          <li><a href="#opetajale">TI-hüpe õpetajale</a></li>
-          <li><a href="#tooriistad">Digitööriistad</a></li>
+          <li><a href="#opilased">Etlini DigiPesa õpilasele</a></li>
+          <li><a href="#opetajale">Etlini DigiPesa õpetajale</a></li>
+          <li><a href="digitooriistad.html">Digitööriistad</a></li>
         </ul>
       </div>
-
       <div>
         <h4 style="margin:0 0 14px; color:#fff; font-size:1.1rem;">Kontakt</h4>
         <ul>
           <li>E-post: õpetaja@kool.ee</li>
           <li>Matemaatika õpetaja</li>
-          <li>TI-hüpe projekt</li>
+          <li>Etlini DigiPesa projekt</li>
         </ul>
       </div>
     </div>
-
-    <div class="container copy">© 2026 TI-hüpe • Loodud matemaatika ja digipädevuse toetamiseks.</div>
+    <div class="container copy">© 2026 Etlini DigiPesa • Loodud matemaatika ja digipädevuse toetamiseks.</div>
   </footer>
 </body>
 </html>
