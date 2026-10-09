@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etlini DigiPesa | Digimaterjalid ja õpetlikud nipid</title>
+  <meta name="description" content="Lõbus ja kasulik digipesa õppematerjalide, nutikate tööriistade ning õpetlike nippide leidmiseks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --blue-900: #0d3b66;
+      --blue-800: #124d8a;
+      --blue-700: #1b67bb;
+      --blue-600: #2d7eea;
+      --blue-500: #4a9af7;
+      --blue-100: #eaf4ff;
+      --cyan: #61d0ff;
+      --ice: #f4f9ff;
+      --ink: #18314f;
+      --muted: #5d6d7c;
+      --line: #dfeaf8;
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(13, 59, 102, 0.12);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(180deg, #f7fbff 0%, #edf7ff 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    h1, h2, h3, h4, .brand, .btn, .chip {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(13, 59, 102, 0.08);
+      box-shadow: 0 8px 24px rgba(13,59,102,0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--blue-900);
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--blue-600), var(--cyan));
+      color: var(--white);
+      box-shadow: 0 12px 24px rgba(45,126,234,0.25);
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--blue-900);
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--blue-100);
+      color: var(--blue-800);
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, #eaf5ff 0%, #dfeeff 20%, #f7fbff 100%);
+      padding: 54px 0 48px;
+      border-bottom: 1px solid rgba(13, 59, 102, 0.08);
+    }
+
+    .page-header h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+      color: var(--blue-900);
+      line-height: 1.1;
+    }
+
+    .page-header p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      margin-bottom: 36px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      color: var(--blue-900);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .tool-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(13,59,102,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(13,59,102,0.12);
+    }
+
+    .tool-header {
+      background: linear-gradient(135deg, var(--blue-700), var(--blue-600));
+      color: var(--white);
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .tool-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.2);
+      font-size: 1.8rem;
+    }
+
+    .tool-title {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .tool-body {
+      padding: 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-description {
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: 0.95rem;
+    }
+
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--blue-100);
+      color: var(--blue-800);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .tool-footer {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      min-height: 44px;
+    }
+
+    .btn-primary {
+      background: var(--blue-700);
+      color: var(--white);
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-800);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--blue-100);
+      color: var(--blue-800);
+      flex: 1;
+    }
+
+    .btn-secondary:hover {
+      background: var(--blue-200);
+    }
+
+    .btn-small {
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      min-height: auto;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--blue-100);
+      color: var(--blue-800);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      background: var(--blue-900);
+      color: rgba(255,255,255,0.8);
+      padding: 42px 0 28px;
+      margin-top: 80px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      font-size: 1.6rem;
+      color: var(--white);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .footer-grid p,
+    .footer-grid li,
+    .footer-grid a {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .footer-grid ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .copy {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      margin-top: 30px;
+      padding-top: 18px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-links a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Etlini DigiPesa avaleht">
+        <span class="brand-mark"><i class="fa-solid fa-book"></i></span>
+        Etlini DigiPesa
+      </a>
+
+      <nav class="nav-links" aria-label="Peamenüü">
+        <a href="index.html">Avaleht</a>
+        <a href="index.html#opilased">TI-hüpe õpilasele</a>
+        <a href="index.html#opetajale">TI-hüpe õpetajale</a>
+        <a href="digitooriistad.html" class="active">Digitööriistad</a>
+        <a href="index.html#inseneeria">Inseneeria koolis</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Digitööriistad</h1>
+        <p>Soovitatud ja testitud rakendused, mis aitavad matemaatika õppimist ja õpetamist muuta lõbusaks, selgeks ja digitaalselt pädevaks.</p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head">
+        <h2><i class="fa-solid fa-palette"></i> Kujundus ja esitlused</h2>
+        <p>Visuaalse kujunduse ja esitluste tegemiseks sobivad tööriistad.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+            <h3 class="tool-title">Canva</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Lihtne ja kaunis platfrom esitluste, plakatite, töölehtede ja infograafikute loomiseks.</p>
+            <div class="tool-tags">
+              <span class="tag">Esitlused</span>
+              <span class="tag">Kujundus</span>
+              <span class="tag">AI</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://www.canva.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://www.canva.com/education/" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-graduation-cap"></i> Edu</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-images"></i></div>
+            <h3 class="tool-title">Google Slides</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Tasuta veebipõhine esitluste tööriist koos reaalajas koostöö võimalusega.</p>
+            <div class="tool-tags">
+              <span class="tag">Esitlused</span>
+              <span class="tag">Koostöö</span>
+              <span class="tag">Pilveteenused</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://docs.google.com/presentation/" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ava</a>
+              <a href="https://support.google.com/docs/answer/2481802" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-question"></i> Abi</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+            <h3 class="tool-title">Prezi</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Dünaamiline esitluste platfrom, kus zoom ja liikumine teevad esitluse põnevaks.</p>
+            <div class="tool-tags">
+              <span class="tag">Esitlused</span>
+              <span class="tag">Interaktiivne</span>
+              <span class="tag">Visuaalne</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://prezi.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://prezi.com/en/for-education/" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-graduation-cap"></i> Edu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: 54px;">
+        <h2><i class="fa-solid fa-calculator"></i> Matemaatika ja geomeetria</h2>
+        <p>Matemaatiliste arvutuste, joonistamise ja geomeetria visualiseerimiseks.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+            <h3 class="tool-title">GeoGebra</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Vabavaraline tööriist geomeetria, algebra, arvutustabeli ja graafikute jaoks.</p>
+            <div class="tool-tags">
+              <span class="tag">Geomeetria</span>
+              <span class="tag">Algebra</span>
+              <span class="tag">Interaktiivne</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://www.geogebra.org" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://www.geogebra.org/materials" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-book"></i> Õppematerjalid</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3 class="tool-title">Desmos</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Tasuta graafikute ja matemaatika visualiseerimise tööriist, mis on väga kasutajalik.</p>
+            <div class="tool-tags">
+              <span class="tag">Graafikud</span>
+              <span class="tag">Funktsioonid</span>
+              <span class="tag">Interaktiivne</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://www.desmos.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://teacher.desmos.com" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-chalkboard-user"></i> Õpetaja</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-function"></i></div>
+            <h3 class="tool-title">Wolfram Alpha</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Võimas arvutusvahend pea kõigile matemaatika ja teaduse küsimustele.</p>
+            <div class="tool-tags">
+              <span class="tag">Arvutused</span>
+              <span class="tag">Lahendamine</span>
+              <span class="tag">Teadus</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://www.wolframalpha.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://www.wolframalpha.com/pro/" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-crown"></i> Pro</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: 54px;">
+        <h2><i class="fa-solid fa-gamepad"></i> Mängulised ja interaktiivsed tööriistad</h2>
+        <p>Õppimist motiveerivad ja mängulisuse lisavad platvormid.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-trophy"></i></div>
+            <h3 class="tool-title">Kahoot!</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Mängulised viktoriinid ja kvistid, mis teevad õppimisest lõbusat ja interaktiivset.</p>
+            <div class="tool-tags">
+              <span class="tag">Mängud</span>
+              <span class="tag">Kvistid</span>
+              <span class="tag">Kiire hindamine</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://kahoot.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://kahoot.com/schools/" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-graduation-cap"></i> Koolid</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-star"></i></div>
+            <h3 class="tool-title">Quizizz</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Interaktiivsete kvistide ja harjutuste platfform, mis motiveerib ja jälgib edenemist.</p>
+            <div class="tool-tags">
+              <span class="tag">Kvistid</span>
+              <span class="tag">Harjutamine</span>
+              <span class="tag">Andmeanalüüs</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://quizizz.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://quizizz.com/teacher/" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-chalkboard-user"></i> Õpetaja</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-sticky-note"></i></div>
+            <h3 class="tool-title">Padlet</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Koostöötav seinatahvel, kus õpilased saavad jagada ideid ja kasutada loovust.</p>
+            <div class="tool-tags">
+              <span class="tag">Koostöö</span>
+              <span class="tag">Loovus</span>
+              <span class="tag">Kommunikatsioon</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://padlet.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://padlet.com/explore" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-magnifying-glass"></i> Otsi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: 54px;">
+        <h2><i class="fa-solid fa-cloud"></i> Google Workspace</h2>
+        <p>Tasuta Google'i teenused, mis on ideaalsed klassiruumis kasutamiseks.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-file-lines"></i></div>
+            <h3 class="tool-title">Google Docs</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Veebipõhine tekstiredaktor, mis võimaldab reaalajas koostööd ja paretagemist.</p>
+            <div class="tool-tags">
+              <span class="tag">Dokumentide loomine</span>
+              <span class="tag">Koostöö</span>
+              <span class="tag">Pilveteenused</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://docs.google.com/document/" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ava</a>
+              <a href="https://support.google.com/docs" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-question"></i> Abi</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-table"></i></div>
+            <h3 class="tool-title">Google Sheets</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Tasuta arvutustabel, ideaalne andmete kogumiseks, analüüsimiseks ja esitlemiseks.</p>
+            <div class="tool-tags">
+              <span class="tag">Andmed</span>
+              <span class="tag">Analüüs</span>
+              <span class="tag">Graafikud</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://docs.google.com/spreadsheets/" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ava</a>
+              <a href="https://support.google.com/sheets" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-question"></i> Abi</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-clipboard"></i></div>
+            <h3 class="tool-title">Google Forms</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Lihtne vahend küsimustike, ankeedi ja tagasiside kogumiseks.</p>
+            <div class="tool-tags">
+              <span class="tag">Uuringud</span>
+              <span class="tag">Andmed</span>
+              <span class="tag">Hindamine</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://docs.google.com/forms/" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ava</a>
+              <a href="https://support.google.com/forms" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-question"></i> Abi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top: 54px;">
+        <h2><i class="fa-solid fa-video"></i> Video ja multimeedium</h2>
+        <p>Videoõpetuseks, screencaste ja multimeedia sisule.</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-brands fa-youtube"></i></div>
+            <h3 class="tool-title">YouTube</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Pealehekanalid, kus on palju tasuta matemaatika ja teaduse õpetusvideoeid.</p>
+            <div class="tool-tags">
+              <span class="tag">Video</span>
+              <span class="tag">Õpetused</span>
+              <span class="tag">Ressursid</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://www.youtube.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://www.youtube.com/edu" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-graduation-cap"></i> Edu</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-circle-play"></i></div>
+            <h3 class="tool-title">OBS Studio</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Tasuta ja avatud lähtekoodiga screencasti ja streaming tööriist.</p>
+            <div class="tool-tags">
+              <span class="tag">Screencast</span>
+              <span class="tag">Streaming</span>
+              <span class="tag">Tasuta</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://obsproject.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://obsproject.com/wiki/" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-book"></i> Wiki</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <div class="tool-icon"><i class="fa-solid fa-record-vinyl"></i></div>
+            <h3 class="tool-title">Loom</h3>
+          </div>
+          <div class="tool-body">
+            <p class="tool-description">Lihtne screencasti ja video jäädvustamise tööriist, kasulik õpetuste jaoks.</p>
+            <div class="tool-tags">
+              <span class="tag">Screencast</span>
+              <span class="tag">Kiire</span>
+              <span class="tag">Jagamine</span>
+            </div>
+            <div class="tool-footer">
+              <a href="https://www.loom.com" target="_blank" class="btn btn-primary btn-small"><i class="fa-solid fa-arrow-up-right-from-square"></i> Külasta</a>
+              <a href="https://www.loom.com/education" target="_blank" class="btn btn-secondary btn-small"><i class="fa-solid fa-graduation-cap"></i> Edu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand"><i class="fa-solid fa-book"></i> Etlini DigiPesa</div>
+        <p>Õppematerjalid, tööriistad, ideed ja digivahendid, mis toetavad matemaatikaga seotud õppimist ja õpetamist.</p>
+      </div>
+
+      <div>
+        <h4 style="margin:0 0 14px; color:#fff; font-size:1.1rem;">Lehed</h4>
+        <ul>
+          <li><a href="index.html">Avaleht</a></li>
+          <li><a href="index.html#opilased">TI-hüpe õpilasele</a></li>
+          <li><a href="index.html#opetajale">TI-hüpe õpetajale</a></li>
+          <li><a href="digitooriistad.html">Digitööriistad</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="margin:0 0 14px; color:#fff; font-size:1.1rem;">Kontakt</h4>
+        <ul>
+          <li>E-post: õpetaja@kool.ee</li>
+          <li>Matemaatika õpetaja</li>
+          <li>Etlini DigiPesa projekt</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container copy">© 2026 Etlini DigiPesa • Loodud matemaatika ja digipädevuse toetamiseks.</div>
+  </footer>
+</body>
+</html>
